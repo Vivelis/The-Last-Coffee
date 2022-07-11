@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1629900953703040499}
   - component: {fileID: 2592271097818736265}
   - component: {fileID: 6382092480875252848}
-  - component: {fileID: 4725065819247621057}
   - component: {fileID: 192788679124376605}
   - component: {fileID: 2223273889579579115}
   - component: {fileID: 88994078805911666}
@@ -89,20 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4725065819247621057
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7267812660042915271}
-  m_Material: {fileID: 13400000, guid: a03f79ed4cc9d4343a75566b2af1cdfe, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &192788679124376605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,10 +175,10 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_SlopeLimit: 45
-  m_StepOffset: 1.65
-  m_SkinWidth: 0.1
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.3
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &88994078805911658
