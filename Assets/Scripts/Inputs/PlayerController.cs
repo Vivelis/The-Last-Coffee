@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _mainCamera;
 
     private bool _hasAnimator;
+    private string _animIDMotionSpeed = "Speed_f";
 
     private bool IsCurrentDeviceMouse;
 
@@ -63,8 +64,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _hasAnimator = TryGetComponent(out _animator);
-
         Move();
     }
 
@@ -112,8 +111,7 @@ public class PlayerController : MonoBehaviour
         // if there is a move input rotate player when the player is moving
         if (_input.move != Vector2.zero)
         {
-            _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
-                              _mainCamera.transform.eulerAngles.y;
+            _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
             float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                 RotationSmoothTime);
 
@@ -132,7 +130,7 @@ public class PlayerController : MonoBehaviour
         if (_hasAnimator)
         {
             //_animator.SetFloat(_animIDSpeed, _animationBlend);
-            //_animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+            _animator.SetFloat(_animIDMotionSpeed, _speed);
         }
     }
 

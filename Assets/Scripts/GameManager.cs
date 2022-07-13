@@ -9,9 +9,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (GameObject.FindGameObjectsWithTag("GameController").Length > 1)
+        {
+            Debug.LogWarning("Error: To Many instances of GameManager.");
+            Application.Quit();
+        }
         if (menuManager == null)
         {
             Debug.LogWarning("Error: Missing MenuManager.");
+            Application.Quit();
+        }
+        if (GameObject.FindGameObjectsWithTag("Player").Length > 1)
+        {
+            Debug.LogWarning("Error: To Many instances of Player.");
             Application.Quit();
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
-    private Transform player;
+    private Transform target;
     [SerializeField]
     private Vector3 cameraPos = new Vector3(0, 2, -3);
     [SerializeField]
@@ -18,25 +18,25 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = player.position + cameraPos;
-        RotateToPlayer();
+        transform.position = target.position + cameraPos;
+        RotateToTarget();
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
         Move();
-        RotateToPlayer();
+        RotateToTarget();
     }
 
     private void Move()
     {
-        playerPos = player.position;
+        playerPos = target.position;
         Vector3 desiredPosition = new Vector3(playerPos.x, playerPos.y, playerPos.z) + cameraPos;
         transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
     }
 
-    private void RotateToPlayer()
+    private void RotateToTarget()
     {
         transform.LookAt(playerPos);
     }
